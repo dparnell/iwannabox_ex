@@ -144,7 +144,7 @@ defmodule IwannaboxEx.Client do
   end
 
   defp _put(path) do
-    HTTPoison.request(:post, _iwb_url(path), "",  _headers(), _options())
+    HTTPoison.request(:put, _iwb_url(path), "",  _headers(), _options())
     |> _handle_result
   end
 
