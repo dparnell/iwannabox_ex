@@ -1,19 +1,18 @@
-# IwannaboxClient
+# IwannaboxEx
 
 **TODO: Add description**
 
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `iwannabox_client` to your list of dependencies in `mix.exs`:
+by adding `iwannabox_ex` to your list of dependencies in `mix.exs`:
 
 ```elixir
 def deps do
-  [{:iwannabox_client, "~> 0.1.0"}]
+  [{:iwannabox_ex, "~> 0.1.0"}]
 end
 ```
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/iwannabox_client](https://hexdocs.pm/iwannabox_client).
-
+be found at [https://hexdocs.pm/iwannabox_ex](https://hexdocs.pm/iwannabox_client).
