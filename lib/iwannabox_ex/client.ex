@@ -98,6 +98,10 @@ defmodule IwannaboxEx.Client do
     _get("/boxes/#{_id(box)}/instances")
   end
 
+  def create_instance(box, instance) when is_list(instance) do
+    create_instance(box, instance |> Enum.into(%{}))
+  end
+
   def create_instance(box, instance) do
     _post("/boxes/#{_id(box)}/instances", instance)
   end
