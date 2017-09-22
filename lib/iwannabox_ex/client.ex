@@ -68,6 +68,7 @@ defmodule IwannaboxEx.Client do
 
   def create_box(environment, params) when is_list(params) do
     box =  %{
+      host_name: params[:host_name],
       region: Keyword.take(params, [:provider, :continent, :region, :country, :city]) |> Enum.into(%{}),
       sizing: Keyword.take(params, [:provider, :vcpus, :disk, :gb]) |> Enum.into(%{}),
       dist: Keyword.take(params, [:provider, :name, :distribution, :slug]) |> Enum.into(%{})
@@ -78,6 +79,7 @@ defmodule IwannaboxEx.Client do
 
   def create_box(environment, params) do
     box =  %{
+      host_name: params[:host_name],
       region: Map.take(params, [:provider, :continent, :region, :country, :city]),
       sizing: Map.take(params, [:provider, :vcpus, :disk, :gb]),
       dist: Map.take(params, [:provider, :name, :distribution, :slug])
