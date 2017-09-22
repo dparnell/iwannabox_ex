@@ -66,6 +66,16 @@ defmodule IwannaboxEx.Client do
     _post("/definitions/#{environment |> _id}/boxes", box_def)
   end
 
+  def create_box(environment, params) when is_list(params) do
+    box =  %{
+      region: Keyword.take(params, [:provider, :continent, :region, :country, :city]) |> Enum.into(%{}),
+      sizing: Keyword.take(params, [:provider, :vcpus, :disk, :gb]) |> Enum.into(%{}),
+      dist: Keyword.take(params, [:provider, :name, :distribution, :slug]) |> Enum.into(%{})
+    }
+
+    _post("/definitions/#{environment |> _id}/boxes", box)
+  end
+
   def create_box(environment, params) do
     box =  %{
       region: Map.take(params, [:provider, :continent, :region, :country, :city]),
