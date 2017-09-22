@@ -153,10 +153,6 @@ defmodule IwannaboxEx.Client do
     |> _handle_result
   end
 
-  defp _options() do
-    Application.get_env(:iwannabox_ex, :http_options, [])
-  end
-
   defp _headers() do
     [{"Content-type", "application/json"},
                {"Authorization",
@@ -173,6 +169,10 @@ defmodule IwannaboxEx.Client do
 
   defp _handle_result({:ok, result} ) do
     {:error, result}
+  end
+
+  defp _options() do
+    Application.get_env(:iwannabox_ex, :http_options, [])
   end
 
   defp _iwb_base_url() do

@@ -11,15 +11,14 @@ defmodule IwannaboxEx.Mixfile do
   end
 
   def application do
-    [extra_applications: [:logger, :httpoison, :poison, :hackney, :phoenix_channel_client]]
+    [extra_applications: [:logger, :httpoison, :poison, :hackney]]
   end
 
   defp deps do
     [
       {:httpoison, "~> 0.13.0"},
       {:poison, "~> 2.0"},
-      {:hackney, "~> 1.6"},
-      {:phoenix_channel_client, github: "dparnell/phoenix_channel_client"}
+      {:hackney, "~> 1.6"}
     ]
   end
 end
