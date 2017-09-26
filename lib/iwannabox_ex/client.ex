@@ -62,6 +62,18 @@ defmodule IwannaboxEx.Client do
     _get("/definitions/#{environment |> _id}/boxes")
   end
 
+  def boxes(environment, params) do
+    _get("/definitions/#{environment |> _id}/boxes?" <> URI.encode_query(params))
+  end
+
+  def all_boxes() do
+    _get("/boxes")
+  end
+
+  def all_boxes(params) do
+    _get("/boxes?" <> URI.encode_query(params))
+  end
+
   def create_box(environment, %{ "region" => _region, "sizing" => _sizing, "dist" => _dist } = box_def) do
     _post("/definitions/#{environment |> _id}/boxes", box_def)
   end
@@ -98,6 +110,14 @@ defmodule IwannaboxEx.Client do
 
   def instances(box) do
     _get("/boxes/#{_id(box)}/instances")
+  end
+
+  def all_instances() do
+    _get("/instances")
+  end
+
+  def all_instances(params) do
+    _get("/instances?" <> URI.encode_query(params))
   end
 
   def create_instance(box, instance) when is_list(instance) do
