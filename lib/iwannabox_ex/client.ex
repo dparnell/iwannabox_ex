@@ -54,6 +54,10 @@ defmodule IwannaboxEx.Client do
     _get("/definitions/#{environment |> _id}")
   end
 
+  def update_environment(environment, env \\ nil) do
+    _put("/definitions/#{environment |> _id}", (env || environment) |> Map.take(["name", "notification_email"]))
+  end
+
   def destroy_environment(environment) do
     _delete("/definitions/#{environment |> _id}")
   end
@@ -181,6 +185,11 @@ defmodule IwannaboxEx.Client do
 
   defp _put(path) do
     HTTPoison.request(:put, _iwb_url(path), "",  _headers(), _options())
+    |> _handle_result
+  end
+
+  defp _put(path, params) do
+    HTTPoison.request(:put, _iwb_url(path), params |> Poison.encode!(),  _headers(), _options())
     |> _handle_result
   end
 
